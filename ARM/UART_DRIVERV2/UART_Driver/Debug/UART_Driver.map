@@ -1,0 +1,377 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.2                    
+******************************************************************************
+>> Linked Tue Dec 10 17:01:43 2019
+
+OUTPUT FILE NAME:   <UART_Driver.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001b45
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00001c54  0003e3ac  R  X
+  SRAM                  20000000   00008000  000002da  00007d26  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001c58   00001c58    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    0000196a   0000196a    r-x .text
+  00001bd6    00001bd6    00000026   00000026    r-- .const
+  00001c00    00001c00    00000058   00000058    r-- .cinit
+20000000    20000000    000002dc   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000000ca   00000000    rw- .data
+  200002cc    200002cc    00000010   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    0000196a     
+                  0000026c    00000920     Port.obj (.text)
+                  00000b8c    00000804     UART_prog.obj (.text)
+                  00001390    000001ec     DIO.obj (.text)
+                  0000157c    0000014c     Priv.obj (.text)
+                  000016c8    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.asm.obj (.text)
+                  000017fe    000000fc                                   : fd_mul_t2.asm.obj (.text)
+                  000018fa    0000009c                                   : memcpy_t2.asm.obj (.text)
+                  00001996    00000002     --HOLE-- [fill = 0]
+                  00001998    00000090     main.obj (.text)
+                  00001a28    0000006e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.asm.obj (.text)
+                  00001a96    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001afe    00000002     --HOLE-- [fill = 0]
+                  00001b00    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00001b44    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001b78    00000020                                   : u_tofd_t2.asm.obj (.text)
+                  00001b98    0000001c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001bb4    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001bc2    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00001bce    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001bd2    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001bd6    00000026     
+                  00001bd6    0000000a     Port_Config.obj (.const:PORTB_Config)
+                  00001be0    0000000a     Port_Config.obj (.const:PORTF_Config)
+                  00001bea    00000006     Port.obj (.const:.string:PRIReg_BitShifts)
+                  00001bf0    00000006     DIO.obj (.const:.string:PinsPerPort)
+                  00001bf6    00000006     Port.obj (.const:.string:PortIntNum)
+
+.cinit     0    00001c00    00000058     
+                  00001c00    00000030     (.cinit..data.load) [load image, compression = lzss]
+                  00001c30    0000000c     (__TI_handler_table)
+                  00001c3c    00000004     --HOLE-- [fill = 0]
+                  00001c40    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001c48    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000200    000000ca     UNINITIALIZED
+                  20000200    00000041     Port.obj (.data)
+                  20000241    00000001     UART_prog.obj (.data:LookUpArray)
+                  20000242    00000001     UART_prog.obj (.data:RecieveDataLength$1)
+                  20000243    00000001     UART_prog.obj (.data:RecieveRequestFlag)
+                  20000244    00000024     UART_config.obj (.data:UART_ConfigArray)
+                  20000268    00000020     UART_prog.obj (.data:RX_Ptrtofuncarr)
+                  20000288    00000020     UART_prog.obj (.data:TX_Ptrtofuncarr)
+                  200002a8    00000018     Port.obj (.data:PORTS_BASES)
+                  200002c0    00000008     Port.obj (.data:local_arr_counter$1)
+                  200002c8    00000001     UART_prog.obj (.data:SendRequestFlag)
+                  200002c9    00000001     UART_prog.obj (.data:SentDataLength$2)
+
+.bss       0    200002cc    00000010     UNINITIALIZED
+                  200002cc    00000008     (.common:RxBufferInfoArray)
+                  200002d4    00000008     (.common:TxBufferInfoArray)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       Port.obj                       2336   12        97     
+       UART_prog.obj                  2052   0         85     
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       DIO.obj                        492    6         0      
+       Priv.obj                       332    0         0      
+       main.obj                       144    0         0      
+       UART_config.obj                0      0         36     
+       Port_Config.obj                0      20        0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         5368   658       218    
+                                                              
+    C:\ti\ccs910\ccs\tools\compiler\ti-cgt-arm_18.12.2.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       fd_div_t2.asm.obj              310    0         0      
+       fd_mul_t2.asm.obj              252    0         0      
+       memcpy_t2.asm.obj              156    0         0      
+       fd_tos_t2.asm.obj              110    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       u_tofd_t2.asm.obj              32     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1134   0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      84        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   6502   742       730    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001c48 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001c00, load size=00000030 bytes, run addr=20000200, run size=000000ca bytes, compression=lzss
+	.bss: load addr=00001c40, load size=00000008 bytes, run addr=200002cc, run size=00000010 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001c30 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+20000240  BothEdgesIntPinMask           
+00001bd3  C$$EXIT                       
+00001437  Dio_ReadChannel               
+00001525  Dio_ReadChannelGroup          
+00001487  Dio_ReadPort                  
+00001391  Dio_WriteChannel              
+000014d9  Dio_WriteChannelGroup         
+000013e3  Dio_WritePort                 
+000015e7  GPIO_enumGetPinNum            
+0000157d  GPIO_enumGetPortNum           
+00001671  GetMaxPortPinNum              
+20000241  LookUpArray                   
+20000200  PA_PIN0_ISR1                  
+20000220  PA_PIN0_ISR2                  
+20000204  PA_PIN1_ISR1                  
+20000224  PA_PIN1_ISR2                  
+20000208  PA_PIN2_ISR1                  
+20000228  PA_PIN2_ISR2                  
+2000020c  PA_PIN3_ISR1                  
+2000022c  PA_PIN3_ISR2                  
+20000210  PA_PIN4_ISR1                  
+20000230  PA_PIN4_ISR2                  
+20000214  PA_PIN5_ISR1                  
+20000234  PA_PIN5_ISR2                  
+20000218  PA_PIN6_ISR1                  
+20000238  PA_PIN6_ISR2                  
+2000021c  PA_PIN7_ISR1                  
+2000023c  PA_PIN7_ISR2                  
+000007d9  PORTA_ISR                     
+00000a81  PORTA_PIN0_ISR                
+00000a99  PORTA_PIN1_ISR                
+00000ab1  PORTA_PIN2_ISR                
+00000ac9  PORTA_PIN3_ISR                
+00000ae1  PORTA_PIN4_ISR                
+00000af9  PORTA_PIN5_ISR                
+00000b19  PORTA_PIN6_ISR                
+00000b31  PORTA_PIN7_ISR                
+00001bd6  PORTB_Config                  
+00001be0  PORTF_Config                  
+200002a8  PORTS_BASES                   
+00001bea  PRIReg_BitShifts              
+00001bf0  PinsPerPort                   
+00001bf6  PortIntNum                    
+00000581  Port_ClrInterruptFlag         
+000005cd  Port_GetInterruptStatus       
+0000026d  Port_Init                     
+00000777  Port_IntDisable               
+0000072d  Port_IntEnable                
+00000635  Port_PinIntInit               
+000006bf  Port_SetIntPriority           
+0000043b  Port_SetInterruptEvent        
+00000361  Port_SetPinDirection          
+000003af  Port_SetPinMode               
+20000268  RX_Ptrtofuncarr               
+20000243  RecieveRequestFlag            
+00001bc3  ResetISR                      
+200002cc  RxBufferInfoArray             
+200002c8  SendRequestFlag               
+20000288  TX_Ptrtofuncarr               
+200002d4  TxBufferInfoArray             
+00001307  UART0_ISR                     
+20000244  UART_ConfigArray              
+00000f11  UART_PrivGetFIFOStatus        
+00000e4d  UART_enumRequestToRecieve     
+00000da7  UART_enumRequestToSend        
+00000b8d  UART_init                     
+00000ffd  UART_mainFunc                 
+000011d9  UART_privGetConfigIndix       
+00000fa9  UART_privRecieveChar          
+00000f81  UART_privSendChar             
+00001225  UART_vidBaudRateCalc          
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00001c48  __TI_CINIT_Base               
+00001c58  __TI_CINIT_Limit              
+00001c30  __TI_Handler_Table_Base       
+00001c3c  __TI_Handler_Table_Limit      
+00001b01  __TI_auto_init_nobinit_nopinit
+00001a97  __TI_decompress_lzss          
+00001bb5  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001b99  __TI_zero_init_nomemset       
+00001a29  __aeabi_d2f                   
+000016c9  __aeabi_ddiv                  
+000017ff  __aeabi_dmul                  
+000018fb  __aeabi_memcpy                
+000018fb  __aeabi_memcpy4               
+000018fb  __aeabi_memcpy8               
+00001b79  __aeabi_ui2d                  
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+00001b45  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001bcf  _system_pre_init              
+00001bd3  abort                         
+ffffffff  binit                         
+000019f1  delay                         
+00000000  g_pfnVectors                  
+00001999  main                          
+000018fb  memcpy                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  Port_Init                     
+00000361  Port_SetPinDirection          
+000003af  Port_SetPinMode               
+0000043b  Port_SetInterruptEvent        
+00000581  Port_ClrInterruptFlag         
+000005cd  Port_GetInterruptStatus       
+00000635  Port_PinIntInit               
+000006bf  Port_SetIntPriority           
+0000072d  Port_IntEnable                
+00000777  Port_IntDisable               
+000007d9  PORTA_ISR                     
+00000a81  PORTA_PIN0_ISR                
+00000a99  PORTA_PIN1_ISR                
+00000ab1  PORTA_PIN2_ISR                
+00000ac9  PORTA_PIN3_ISR                
+00000ae1  PORTA_PIN4_ISR                
+00000af9  PORTA_PIN5_ISR                
+00000b19  PORTA_PIN6_ISR                
+00000b31  PORTA_PIN7_ISR                
+00000b8d  UART_init                     
+00000da7  UART_enumRequestToSend        
+00000e4d  UART_enumRequestToRecieve     
+00000f11  UART_PrivGetFIFOStatus        
+00000f81  UART_privSendChar             
+00000fa9  UART_privRecieveChar          
+00000ffd  UART_mainFunc                 
+000011d9  UART_privGetConfigIndix       
+00001225  UART_vidBaudRateCalc          
+00001307  UART0_ISR                     
+00001391  Dio_WriteChannel              
+000013e3  Dio_WritePort                 
+00001437  Dio_ReadChannel               
+00001487  Dio_ReadPort                  
+000014d9  Dio_WriteChannelGroup         
+00001525  Dio_ReadChannelGroup          
+0000157d  GPIO_enumGetPortNum           
+000015e7  GPIO_enumGetPinNum            
+00001671  GetMaxPortPinNum              
+000016c9  __aeabi_ddiv                  
+000017ff  __aeabi_dmul                  
+000018fb  __aeabi_memcpy                
+000018fb  __aeabi_memcpy4               
+000018fb  __aeabi_memcpy8               
+000018fb  memcpy                        
+00001999  main                          
+000019f1  delay                         
+00001a29  __aeabi_d2f                   
+00001a97  __TI_decompress_lzss          
+00001b01  __TI_auto_init_nobinit_nopinit
+00001b45  _c_int00_noargs               
+00001b79  __aeabi_ui2d                  
+00001b99  __TI_zero_init_nomemset       
+00001bb5  __TI_decompress_none          
+00001bc3  ResetISR                      
+00001bcf  _system_pre_init              
+00001bd3  C$$EXIT                       
+00001bd3  abort                         
+00001bd6  PORTB_Config                  
+00001be0  PORTF_Config                  
+00001bea  PRIReg_BitShifts              
+00001bf0  PinsPerPort                   
+00001bf6  PortIntNum                    
+00001c30  __TI_Handler_Table_Base       
+00001c3c  __TI_Handler_Table_Limit      
+00001c48  __TI_CINIT_Base               
+00001c58  __TI_CINIT_Limit              
+20000000  __stack                       
+20000200  PA_PIN0_ISR1                  
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000204  PA_PIN1_ISR1                  
+20000208  PA_PIN2_ISR1                  
+2000020c  PA_PIN3_ISR1                  
+20000210  PA_PIN4_ISR1                  
+20000214  PA_PIN5_ISR1                  
+20000218  PA_PIN6_ISR1                  
+2000021c  PA_PIN7_ISR1                  
+20000220  PA_PIN0_ISR2                  
+20000224  PA_PIN1_ISR2                  
+20000228  PA_PIN2_ISR2                  
+2000022c  PA_PIN3_ISR2                  
+20000230  PA_PIN4_ISR2                  
+20000234  PA_PIN5_ISR2                  
+20000238  PA_PIN6_ISR2                  
+2000023c  PA_PIN7_ISR2                  
+20000240  BothEdgesIntPinMask           
+20000241  LookUpArray                   
+20000243  RecieveRequestFlag            
+20000244  UART_ConfigArray              
+20000268  RX_Ptrtofuncarr               
+20000288  TX_Ptrtofuncarr               
+200002a8  PORTS_BASES                   
+200002c8  SendRequestFlag               
+200002cc  RxBufferInfoArray             
+200002d4  TxBufferInfoArray             
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[106 symbols]

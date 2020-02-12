@@ -1,0 +1,1 @@
+"./DIO.obj" "./Port.obj" "./Port_Config.obj" "./Priv.obj" "./UART_config.obj" "./UART_prog.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "../tm4c123gh6pm.cmd" -llibc.a 
