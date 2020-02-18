@@ -9,7 +9,12 @@
 #include "UART_Config.h"
 #include "UART_MemMap.h"
 #include "utils.h"
-extern void (* const NULL) (void);
+volatile void empty_func(void);
+volatile void empty_func(void)
+{
+
+}
+volatile void (* const NULL) (void)=empty_func;
 u8 RecieveDataLength [NUMBER_OF_MODULES] = {0} ;
 
 extern UART_module UART_ConfigArray [NUMBER_OF_MODULES];
@@ -327,3 +332,5 @@ void UART0_ISR (void)
 
 
 }
+
+

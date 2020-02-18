@@ -64,14 +64,6 @@ u8 UART_privRecieveChar(u8 copy_u8UARTID) ;
 
 #define SYSCLOCK 0x00
 #define PIOSC 0x5
-void func(void);
-void func(void)
-{
-
-}
-void (* const NULL) (void)=func;
-
-
 
 
 
